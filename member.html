@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>WIFI RAKYAT - MEMBER</title> 
+    <link rel="icon" href="image/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/splide.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="js/PrayTimes.js"></script>
+    <script type="text/javascript" src="js/md5.js"></script>
+  </head>
+  <script>
+    var error = "$(error)";
+    if ((error == "user $(username) has reached uptime limit") || (error ==
+            "kode voucher/user $(username) sudah mencapai batas waktu")) {
+        window.location.href = "./expired.html";
+    }
+</script>
+  <body id="wrap">
+      <section>
+        $(if chap-id)
+        <form name="sendin" action="$(link-login-only)" method="post">
+            <input type="hidden" name="username" />
+            <input type="hidden" name="password" />
+            <input type="hidden" name="dst" value="$(link-orig)" />
+            <input type="hidden" name="popup" value="true" />
+        </form>
+
+        <script type="text/javascript" src="js/md5.js"></script>
+        <script type="text/javascript">
+            function doLogin() {
+                document.sendin.username.value = document.login.username.value;
+                document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value +
+                    '$(chap-challenge)');
+                document.sendin.submit();
+                return false;
+            }
+        </script>
+        $(endif)
+
+        <!--RUNNING TEXT INFO - ATAS-->            
+          <div>
+            <marquee scrollamount="9" bgcolor="yellow" onmouseover="this.stop()" onmouseout="this.start()" style="font-family: helvetica; font-size: 16px;">
+            <b><strong style="background-color: red; color: white">&nbsp; PENTING <em>(BACA) !!!&nbsp; </em></strong>&nbsp; &bull; &nbsp;RESTART SERVER <em>(OTOMATIS)</em> DILAKUKAN SETIAP HARI SELASA PUKUL 02.00 WIB, INTERNET AKAN TERPUTUS 1-2 MENIT</b>
+            &nbsp; &nbsp; &bull; &#9679; &bull; &nbsp; &nbsp;
+            AGAR INTERNET LANCAR, PASTIKAN ANDA MENDAPATKAN SINYAL YANG BAIK 
+            &nbsp; &nbsp; &bull; &#9679; &bull; &nbsp; &nbsp;
+            <b>BUTUH BANTUAN HUBUNGI ADMIN (0812 3456 7890)</b>
+            </marquee>
+          </div>
+        <!--RUNNING TEXT INFO - ATAS - BATAS AKHIR-->
+   
+        <div id="image-slider" class="splide splide__track">
+          <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <a><img src="image/banner/slide1.jpg"></a>
+            </li>
+            <li class="splide__slide">
+              <a><img src="image/banner/slide2.jpg"></a>
+            </li>
+            <li class="splide__slide">
+              <a><img src="image/banner/slide3.jpg"></a>
+            </li>
+            <li class="splide__slide">
+              <a><img src="image/banner/slide4.jpg"></a>
+            </li>
+          </ul>
+          </div>
+      </div>
+
+        <div class="ramadhan">
+          <div class="title" style="text-align: center;">RAMADHAN 1444 H</div>       
+          <div class="countdown-top" style="text-align: center;">
+            <span id="countdown">
+            </span>
+          </div>
+          <hr style="margin: 5px;">
+          <center><div id="table"></div></center>
+        </div>
+
+          <main>
+            <form class="form" name="login" autocomplete="off" action="$(link-login-only)" method="post" $(if chap-id)
+                onSubmit="return doLogin()" $(endif)>
+                <input type="hidden" name="dst" value="$(link-orig)" />
+                <input type="hidden" name="popup" value="true" />
+                <center>
+                  <div class="login-input">
+                      <input type="text" name="username" value="$(username)"  placeholder="Masukan Username" />
+                  </div>
+                  <div id="formpass" class="login-input none">
+                      <input type="password" style="margin-top: 15px;" name="password" placeholder="Password"/>
+                  </div>
+                  <button type="submit" class="btn-login">LOGIN MEMBER</button>
+                </center>
+            </form>
+            $(if error)
+            <div class="error">
+                <span class="descrip">$(error)</span>
+            </div>
+            $(endif)
+
+            <div class="buttons">
+              <div class="catagory-card">
+                $(if trial == 'yes')	
+                    <a style="text-decoration: none;" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">$(endif)
+                      <img src="./image/menu/icon-trial.svg" alt="free" width="80%"><span>Gratis</span></a></div>
+              <div class="catagory-card">
+                <a style="text-decoration: none;" href="./login.html">
+                  <img src="./image/menu/icon-voucher-hot-btn.svg" alt="member" width="80%">
+                <span>Voucher</span></a>
+              </div>
+              <div class="catagory-card">
+                <a style="text-decoration: none;" onclick="window.location='https://laksa19.github.io/myqr';">
+                  <img src="./image/menu/icon-qrcode.svg" alt="scan" width="80%">
+                <span>ScanQR</span></a>
+              </div>
+            </div>
+            <div class="buttons">
+              <div class="catagory-card">
+                <a style="text-decoration: none;" href="./voucher.html">
+                  <img src="./image/menu/icon-harga.svg" alt="harga" width="80%">
+                <span>Harga</span></a>
+              </div>
+              <div class="catagory-card" >
+                <a style="text-decoration: none;" href="./voucher.html">
+                  <img src="./image/menu/icon-help.svg" alt="help" width="80%">
+                <span>Bantuan</span></a>
+              </div>
+              <div class="catagory-card">
+                <a style="text-decoration: none;" href="./info.html">
+                  <img src="./image/menu/icon-info.svg" alt="rules" width="80%">
+                <span>Info</span></a>
+              </div>
+            </div>
+          </main>
+          <main>
+            <div class="footpage">
+              <div class="footpages">
+                <div class="logo">
+                <img src="./image/menu/icon-masjid.svg" alt="footpage" width="100%">
+                </div>
+                <div class="info">
+                  <div class="title"><script src="./js/tanggal.js"></script></div>       
+                  <div class="countdownr">
+                    <span><script src="./js/hijriyah.js"></script>
+                    </span> 
+                  </div>
+                  <div class="copyrigt">Kec. Ponggok, Kab. Blitar</div>
+                </div>
+              </div>
+            </div>
+            <div class="footpage">
+              <div class="footpages">
+                <div class="logo">
+                  <a href="https://wa.me/send?phone=6281234567890&text=Halo%20Awe%20Net.">
+                <img src="./image/menu/icon-kontak.svg" alt="footpage" width="100%"></a>
+                </div>
+                <div class="info">
+                  <div class="title">Contact Us</div>       
+                  <div class="countdownr">0812-3456-7890</div>
+                  <div class="copyrigt"><i>Admin (whatsapp only)</i></div>
+                </div>
+              </div>
+            </div>
+          </main>          
+          <center><span class='copyright-teks'><p style="font-size:11px; padding: 1rem; margin: 0px;">Copyright &copy; 2023 <a style="text-decoration: none;" href="https://awenetmedia.my.id" target="_blank" rel="noopener" title="Created By AWE NET"><strong>AWE NET</strong> | All Rights Reserved</a></span></center>
+
+
+              </section>
+
+    <script type="text/javascript">
+    
+      document.login.username.focus();
+    //-->
+    </script>
+    	<script type='text/javascript'>
+        //<![CDATA[
+        // set the date we're counting down to
+        var target_date = new Date("Mar 23, 2023").getTime();
+        // variables for time units
+        var days, hours, minutes, seconds;
+        // get tag element
+        var countdown = document.getElementById("countdown");
+        // update the tag with id "countdown" every 1 second
+        setInterval(function () {
+            // find the amount of "seconds" between now and target
+            var current_date = new Date().getTime();
+            var seconds_left = (target_date - current_date) / 1000;
+            // do some time calculations
+            days = parseInt(seconds_left / 86400);
+            seconds_left = seconds_left % 86400;
+        
+            hours = parseInt(seconds_left / 3600);
+            seconds_left = seconds_left % 3600;
+        
+            minutes = parseInt(seconds_left / 60);
+            seconds = parseInt(seconds_left % 60);
+        
+            // format countdown string + set tag value
+          countdown.innerHTML = days + " <span class=\'teks\'>hari</span> " + hours + " <span class=\'teks\'>jam</span> "
+          + minutes + " <span class=\'teks\'>menit</span> " + seconds + " <span class=\'teks\'>detik";
+        }, 1000);
+        //]]>
+        </script>
+<script type="text/javascript">
+  // Set Jadwal Sholat call PrayTimes.js
+var date = new Date();
+prayTimes.setMethod('MWL'); // Calculation Methods
+prayTimes.tune({imsak: 0, fajr: 0, dhuhr: 0, asr: 0, maghrib: 0, isha: 0}); // ihtiyati (faktor kehati-hatian) sebesar 0 menit
+var times = prayTimes.getTimes(date, [-8.1014419, 112.162762,], 7.00); // Kabupaten Blitar  latitude https://github.com/benangmerah/wilayah/blob/master/datasources/daftar-nama-daerah.csv
+var list = ['Imsak', 'Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+var nama = ['Imsak', 'Subuh', 'Dhuhur', 'Ashar', 'Maghrib', 'Isya'];
+var html = '<table id="timetable"><tr>';
+
+for (var i in list) {
+  // html += '<tr><td>'+ list[i]+ '</td>';
+	html += '<td><span>' + nama[i] + '</span><br/>' + times[list[i].toLowerCase()] + '</td>';
+	}
+	html += '</tr></table>';
+	document.getElementById('table').innerHTML = html;
+</script>
+    	<script src="js/splide.min.js"></script>
+      <script src="js/splide.custom.js"></script>
+      <!--Live Chat-->
+      <script type="text/javascript" src="./js/livechat.js"></script>
+      <script id="intergram" type="text/javascript" src="https://www.intergram.xyz/js/widget.js"></script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>WIFI RAKYAT</title>
+    <link rel="icon" href="image/favicon.png">
+    <link rel="stylesheet" href="./css/style.css">
+    $(if refresh-timeout)
+<script>
+    setTimeout(function () {
+        location.href = './status';
+    }, 4000)
+</script>
+$(endif)
+</head>
+<body>
+    <section>
+    <header>
+        <div class="menu">
+        <center>
+            <img src="./image/login.png" alt="" width="30%" style="padding-bottom: 2rem;">
+        
+                <h4>Selamat Datang $(username)</h4>
+                <div class="button">
+                <button onclick="status();" id="login" class="btn-relog">Lanjutkan</button>
+                </div>
+                </div></center>
+                </header>
+            </section>
+
+    <script>
+        function status() {
+            console.log(" go to status");
+            window.location.href = "./status.html";
+        }
+    </script>
+</body>
+</html>

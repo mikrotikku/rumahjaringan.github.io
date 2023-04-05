@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>WIFI RAKYAT - STATUS</title>
+    <link rel="icon" href="image/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/splide.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="js/PrayTimes.js"></script>
+    <script type="text/javascript" src="js/md5.js"></script>
+    <style>
+        iframe  {
+        margin: -4px 8px 9px;
+        height: 22px;
+        width: 100%;
+        }
+        </style>
+</head>
+<body  id="wrap" $(if advert-pending=='yes' ) onLoad="openAdvert()" $(endif)>
+    <section>
+        <!--RUNNING TEXT INFO - ATAS-->            
+        <div>
+            <marquee scrollamount="9" bgcolor="yellow" onmouseover="this.stop()" onmouseout="this.start()" style="font-family: helvetica; font-size: 16px;">
+            <b>
+            <strong style="background-color: red; color: white">&nbsp; PENTING <em>(BACA) !!!&nbsp; </em></strong>&nbsp; &bull; &nbsp;RESTART SERVER <em>(OTOMATIS)</em> DILAKUKAN SETIAP HARI SELASA PUKUL 02.00 WIB, INTERNET AKAN TERPUTUS 1-2 MENIT
+            </b>
+            
+            &nbsp; &nbsp; &bull; &#9679; &bull; &nbsp; &nbsp;
+            AGAR INTERNET LANCAR, PASTIKAN ANDA MENDAPATKAN SINYAL YANG BAIK
+                  
+            &nbsp; &nbsp; &bull; &#9679; &bull; &nbsp; &nbsp;
+            <b>BUTUH BANTUAN HUBUNGI ADMIN (0812 3456 7890)</b>
+            </marquee>
+            </div>
+        <!--RUNNING TEXT INFO - ATAS - BATAS AKHIR-->
+
+        <div id="image-slider" class="splide splide__track">
+            <div class="splide__track">
+                <ul class="splide__list">
+                <li class="splide__slide">
+                    <a><img src="image/banner/slide1.jpg"></a>
+                </li>
+                <li class="splide__slide">
+                    <a><img src="image/banner/slide2.jpg"></a>
+                </li>
+                <li class="splide__slide">
+                    <a><img src="image/banner/slide3.jpg"></a>
+                </li>
+                <li class="splide__slide">
+                    <a><img src="image/banner/slide4.jpg"></a>
+                  </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="ramadhan">
+            <div class="title" style="text-align: center;">RAMADHAN 1444 H</div>       
+            <div class="countdown-top" style="text-align: center;">
+              <span id="countdown">
+              </span>
+            </div>
+            <hr style="margin: 5px;">
+            <center><div id="table"></div></center>
+        </div>
+
+        <main>
+            $(if login-by == 'trial')
+            <h2 class="major">Anda sudah terhubung</h2>
+                  $(elif login-by != 'mac')
+            <h2 class="major">Anda sudah terhubung</h2>
+            <div id="user" style="text-align: center; font-weight:bold; font-size: larger; margin-top:10px; color:rgba(40, 127, 226, 0.685)">$(username)</div> 
+            $(endif)
+            <div class="footpage-status">
+                <div class="row status">
+                    <div class="col-5">
+                        <b>Terhubung</b>
+                    </div>
+                    <div class="col-1">
+                        :
+                    </div>
+                    <div class="col-6">
+                        $(uptime)
+                    </div>
+                </div>
+                <div class="row status">
+                    <div class="col-5">
+                        <b>MAC Device</b>
+                    </div>
+                    <div class="col-1">
+                        :
+                    </div>
+                    <div class="col-6">
+                        $(mac)
+                    </div>
+                </div>
+                <div class="row status">
+                    <div class="col-5">
+                        <b>Bytes Up / Down</b>
+                    </div>
+                    <div class="col-1">
+                        :
+                    </div>
+                    <div class="col-6">
+                        $(bytes-in-nice) / $(bytes-out-nice)
+                    </div>
+                </div>
+                
+                $(if session-time-left)
+                <div class="row status">
+                    <div class="col-5">
+                        <b>Sisa Waktu</b>
+                    </div>
+                    <div class="col-1">
+                        :
+                    </div>
+                    <div class="col-6">
+                        $(session-time-left)
+                    </div>
+                </div>
+                $(endif)
+
+                <div style="text-align: center;">
+                    <a>KETERANGAN WAKTU<br>
+ 						<strong>d:</strong> hari / <strong>h:</strong> jam / <strong>m:</strong> menit / <strong>s:</strong> detik
+                    </a>
+                </div>
+            </div>
+            
+            
+                <!--div class="status">
+                    <tr><td><b>Expired:</b></td>
+                    <td align="right">
+                    <iframe id="exp" frameborder="0" scrolling="no" src="about:blank"></iframe></td></tr>
+                </-div!-->
+            </div>
+                <center>
+                    <form id="btn-logout" action="$(link-logout)" class="logout" name="logout" onSubmit="return openLogout()">
+                        $(if login-by-mac != 'yes')
+                        <button type="submit" class="btn-logout">Logout</button>
+                        $(endif)
+                    </form>
+                </center>
+        </main>
+		
+        <center><span class='copyright-teks'><p style="font-size:11px; padding: 1rem; margin: 0px;">Copyright &copy; 2023 <a style="text-decoration: none;" href="https://awenetmedia.my.id" target="_blank" rel="noopener" title="Created By AWE NET"><strong>AWE NET</strong> | All Rights Reserved</a></span></center>
+		
+    </section>
+
+	    <!--Expired>
+            <script type="text/javascript">
+                var usr = document.getElementById('user').innerHTML
+                var url =
+                    "https://api.labkom.co.id/AhmadNet/status/status.php?name="; // http://ip-server-mikhmon/mikhmonv2/status/status.php?name=
+                var SessionName = "Ahmad-NET"
+                var getvalid = url + usr + "&session=" + SessionName
+                document.getElementById('exp').src = getvalid;
+            </script>
+        </Expired-->
+
+    	<script type='text/javascript'>
+            //<![CDATA[
+            // set the date we're counting down to
+            var target_date = new Date("Mar 23, 2023").getTime();
+            // variables for time units
+            var days, hours, minutes, seconds;
+            // get tag element
+            var countdown = document.getElementById("countdown");
+            // update the tag with id "countdown" every 1 second
+            setInterval(function () {
+                // find the amount of "seconds" between now and target
+                var current_date = new Date().getTime();
+                var seconds_left = (target_date - current_date) / 1000;
+                // do some time calculations
+                days = parseInt(seconds_left / 86400);
+                seconds_left = seconds_left % 86400;
+            
+                hours = parseInt(seconds_left / 3600);
+                seconds_left = seconds_left % 3600;
+            
+                minutes = parseInt(seconds_left / 60);
+                seconds = parseInt(seconds_left % 60);
+            
+                // format countdown string + set tag value
+              countdown.innerHTML = days + " <span class=\'teks\'>hari</span> " + hours + " <span class=\'teks\'>jam</span> "
+              + minutes + " <span class=\'teks\'>menit</span> " + seconds + " <span class=\'teks\'>detik";
+            }, 1000);
+            //]]>
+            </script>
+    <script type="text/javascript">
+      // Set Jadwal Sholat call PrayTimes.js
+    var date = new Date();
+    prayTimes.setMethod('MWL'); // Calculation Methods
+    prayTimes.tune({imsak: 0, fajr: 0, dhuhr: 0, asr: 0, maghrib: 0, isha: 0}); // ihtiyati (faktor kehati-hatian) sebesar 0 menit
+    var times = prayTimes.getTimes(date, [-8.1014419, 112.162762,], 7.00); // Kabupaten Blitar  latitude https://github.com/benangmerah/wilayah/blob/master/datasources/daftar-nama-daerah.csv
+    var list = ['Imsak', 'Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+    var nama = ['Imsak', 'Subuh', 'Dhuhur', 'Ashar', 'Maghrib', 'Isya'];
+    var html = '<table id="timetable"><tr>';
+    
+    for (var i in list) {
+      // html += '<tr><td>'+ list[i]+ '</td>';
+        html += '<td><span>' + nama[i] + '</span><br/>' + times[list[i].toLowerCase()] + '</td>';
+        }
+        html += '</tr></table>';
+        document.getElementById('table').innerHTML = html;
+    </script>
+            <script src="js/splide.min.js"></script>
+          <script src="js/splide.custom.js"></script>
+</body>
+</html>
